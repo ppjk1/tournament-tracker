@@ -15,7 +15,7 @@ def deleteMatches():
     """Remove all the match records from the database."""
     conn = connect()
     c = conn.cursor()
-    c.execute("delete from matches;")
+    c.execute("DELETE FROM matches;")
     conn.commit()
     conn.close()
 
@@ -27,6 +27,7 @@ def deletePlayers():
     c.execute("DELETE FROM players")
     conn.commit()
     conn.close()
+
 
 def countPlayers():
     """Returns the number of players currently registered."""
@@ -109,6 +110,9 @@ def swissPairings():
         name2: the second player's name
     """
     standings = playerStandings()
+
+    # Players are already sorted based on number of wins.
+    # Iterate in hops of two to get our pairings.
     pairings = []
     i = 0
     while(i < len(standings)-1):
