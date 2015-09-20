@@ -57,6 +57,22 @@ tournament/
   |--- tournament_test.py
 ```
 
+
+## Table Design ##
+Master tables:
+- **tournament**: stores tournament names and ids
+- **player**: stores player names and ids
+
+Reference tables:
+- **player_tournaments**: maps players to the tournaments for which they are registered
+- **match**: stores player pairs, the appropriate tournament id, and the outcome of the match:
+    - player1 win
+    - player2 win
+    - draw
+    - bye
+- **player_points**: stores player points per tournament along with a boolean value for whether they have already been given a bye
+
+
 ### Credits ###
 Base requirements and unit tests were provided by [Udacity](https://udacity.com) in the project starter kit.
 
